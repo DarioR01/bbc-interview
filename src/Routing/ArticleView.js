@@ -16,7 +16,7 @@ import article5 from '../Articles/article-5.json'
     To replicate slow connection increase the internet delay value (for each 1000 1 second delay) e.g. try to replace 0 with 2000 for a delay of 2 seconds
 */
 const connection = true;
-const internetDelay = 0;
+const internetDelay = 2000;
 
 /*Stub GET request*/ 
 async function serverGetRequestStub (index) {
@@ -58,22 +58,42 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
     const [currentArticle, setCurrentArticle] = useState (undefined)
     const [articleIndex, setArticleIndex] = useState (1)
 
+    const [preLoad, setPreLoad] = useState ({index: 0, article: undefined})
+    const [fetching, setFetching] = useState (false)
+
     let [tmpVisitedArticle, setTmpVisitedArticle] = useState([])
 
     useEffect(
         async () =>{
-            try{
-                setCurrentArticle(await serverGetRequestStub(articleIndex))
-            }
-            catch (err){
-                if(err){
-                    setError(err)
+            if(preLoad.index===articleIndex && !fetching){
+                try{
+                    setCurrentArticle(preLoad.article)
+                    setLoading(false)
+                    setFetching(true)
+                    setPreLoad({index: articleIndex+1, article: await serverGetRequestStub(articleIndex+1)})
+                    setFetching(false)
+                }catch(err){
+                    console.log(err)
                 }
-                else{
-                    setGoRate(true)
+            }
+
+            else{
+                try{
+                    setCurrentArticle(await serverGetRequestStub(articleIndex))
+                    setLoading(false)
+                    setFetching(true)
+                    setPreLoad({index: articleIndex+1, article: await serverGetRequestStub(articleIndex+1)})
+                    setFetching(false)
+                }
+                catch (err){
+                    if(err){
+                        setError(err)
+                    }
+                    else{
+                        setGoRate(true)
+                    }
                 }
             }
-            setLoading(false)
         }
     , [articleIndex] )
 
