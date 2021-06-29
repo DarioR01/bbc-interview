@@ -1,10 +1,10 @@
 # bbc
 
 ### `Connectivity Delay`
-To trigger connection delay issues to the stubbed server change the variable internetDelay in [ArticleView.js](./Routing/ArticleView.js) to a value > 0 (add 1000 for every second you want to delay) 
+To trigger connection delay issues to the stubbed server change the variable internetDelay in [ArticleView.js](./src/Routing/ArticleView.js) to a value > 0 (add 1000 for every second you want to delay) 
 
 ### `Connection Fail to the server`
-To trigger connection fail to the stubbed server change the variable connection in [ArticleView.js](./Routing/ArticleView.js) to false
+To trigger connection fail to the stubbed server change the variable connection in [ArticleView.js](./src/Routing/ArticleView.js) to false
 
 ### `npm start`
 
