@@ -7,9 +7,7 @@ import article3 from '../Articles/article-3.json'
 import article4 from '../Articles/article-4.json'
 import article5 from '../Articles/article-5.json'
 
-const Raiting = (visitedArticles) =>{
-    visitedArticles= [article1, article2, article3, article4, article5]
-    
+const Raiting = ({visitedArticles}) =>{
     const [raiting, setRaiting] = useState([])
 
     //Server stub of POST request

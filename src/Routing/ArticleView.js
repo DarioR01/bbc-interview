@@ -51,12 +51,14 @@ async function serverGetRequestStub (index) {
 }
 
 
-const ArticleView = () =>{
+const ArticleView = ({setGoRate, setArticleViewed}) =>{
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(undefined)
 
     const [currentArticle, setCurrentArticle] = useState (undefined)
     const [articleIndex, setArticleIndex] = useState (1)
+
+    let [tmpVisitedArticle, setTmpVisitedArticle] = useState([])
 
     useEffect(
         async () =>{
@@ -64,7 +66,12 @@ const ArticleView = () =>{
                 setCurrentArticle(await serverGetRequestStub(articleIndex))
             }
             catch (err){
-                setError(err)
+                if(err){
+                    setError(err)
+                }
+                else{
+                    setGoRate(true)
+                }
             }
             setLoading(false)
         }
@@ -72,6 +79,8 @@ const ArticleView = () =>{
 
     function nextArticle(){
         setLoading(true)
+        tmpVisitedArticle.push(currentArticle)
+        setArticleViewed(tmpVisitedArticle)
         setArticleIndex(articleIndex+1)
     }
 
