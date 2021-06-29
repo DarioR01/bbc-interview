@@ -1,4 +1,4 @@
-import Article from './Components/Article'
+import ArticleView from './Routing/ArticleView'
 
 /*impot the json files for testing purposes*/
 import article1 from './Articles/article-1.json'
@@ -11,7 +11,7 @@ import article5 from './Articles/article-5.json'
 function App() {
   /* changing the article passed in the model will render a different article following the object inside the JSON file */
   return (
-    <Article model={article1}/>
+    <ArticleView/>
   );
 }
 
