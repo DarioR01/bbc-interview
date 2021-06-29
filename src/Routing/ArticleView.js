@@ -16,13 +16,13 @@ import article5 from '../Articles/article-5.json'
     To replicate slow connection increase the internet delay value (for each 1000 1 second delay) e.g. try to replace 0 with 2000 for a delay of 2 seconds
 */
 const connection = true;
-const internetDelay = 1000;
+const internetDelay = 0;
 
 /*Stub GET request*/ 
 async function serverGetRequestStub (index) {
     return new Promise((resolve,reject) => {
         if(!connection){
-            reject({type: "connection", description: "impossible to connect to server, try later"})
+            reject({type: "ERROR 500: Internal Server Error", description: "The server encountered an unexpected condition, which prevented it from fulfilling the request. Try again later."})
         }
             setTimeout(
                 () =>{
@@ -93,10 +93,10 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
                 error?
                 <Error type={error.type} description={error.description}/>
                 :
-                <div>
+                <section className="container">
                     <Article model={currentArticle}/>
-                    <button onClick={nextArticle}>Next</button>
-                </div>
+                    <button className="redButton" onClick={nextArticle}>Next</button>
+                </section>
             }
         </div>
     )

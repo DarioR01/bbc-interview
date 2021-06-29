@@ -1,0 +1,174 @@
+/*Broweser default reset*/
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+/*general style*/
+  
+.container{
+    margin:auto;
+    text-align: center;
+}
+
+.article{
+    font-family: Andale Mono, monospace;
+}
+
+.title{
+    background-color:#bb1919;
+    color:white;
+    font-family: inherit;
+    text-align: left;
+    padding:2%;
+}
+
+.imageContainer{
+    max-width: 100%;
+    max-height: 100%;
+    width:auto;
+    height:auto;
+}
+
+.imageContainer img{
+    max-width: 100%;
+    max-height: 100%;
+    width:auto;
+    height:auto;
+}
+
+/*Article style*/
+
+.articleBorder{
+    border: 1px solid black !important;
+}
+
+
+.articleHeading{
+    color:#3f3f42;
+    font-family: inherit;
+    text-align: left;
+    padding: 2%;
+}
+
+.articleParagraph{
+    padding:2%;
+    text-align: left;
+}
+
+.redButton{
+    width:120px;
+    margin: 20px;
+    border: 1px solid #bb1919;
+    padding:1%;
+    font-family: inherit;
+}
+
+.redButton:hover{
+    background-color: #bb1919;
+    color: white;
+}
+
+.articleUList, .articleOList{
+    padding:2%;
+    text-align: left;
+    list-style-position: inside;
+    font-family: inherit;
+}
+
+/*When page size is large for container*/
+@media only screen and (min-width: 1020px){
+
+    .articleHeading{
+      font-size:32px;
+    }
+    
+    .title{
+      font-size:48px;
+    }
+  
+    .container{
+      width:960px;
+    }
+  
+}
+
+
+
+  /*When page size is small for container*/ 
+@media only screen and (max-width: 1020px){
+
+    .articleHeading{
+      font-size:2rem;
+    }
+    
+    .title{
+      font-size:3rem;
+    }
+  
+    .container{
+      width:95%;
+    }
+
+}
+
+
+/*Raiting style*/
+
+.radioRaiting{
+    float:right;
+    padding: 5%;
+}
+
+.radioRaiting label {
+    float: left;
+    display: block;
+    width: 60px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+}
+
+.column{
+    float: left;
+    width: 50%;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.hide::before{
+    content: "\a";
+    white-space: pre;
+}
+
+.showHiddenOnOver:hover + .hide, .showHiddenOnOver:checked + .hide{
+    visibility: visible;
+}
+
+/*Loading style*/
+.loading{
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color: #bb1919;
+    color: white;
+    font-size: 6rem;
+    text-align: center;
+}
+
+/*Error Style*/
+.errorContainer{
+    text-align: center;
+}
+
+.errorDescription{
+    font-family: inherit;
+}
+
+.errorTitle{
+    font-family: inherit;
+}
