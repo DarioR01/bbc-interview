@@ -1,3 +1,5 @@
+import '../Style/App.css'
+
 const Error = ({type, description}) =>{
     return(
         <div>

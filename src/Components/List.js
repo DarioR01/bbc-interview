@@ -1,9 +1,11 @@
+import '../Style/App.css'
+
 const List = ({model}) =>{
     /*Check if the type of list from json document is unordered or ordered and return the correct type of list*/
     switch(model.type){
         case "unordered" :
             return(
-                <ul>
+                <ul className='articleUList'>
                     {model.items.map((item, index) =>{
                         return <li key={index}>{item}</li>
                     })}
@@ -11,7 +13,7 @@ const List = ({model}) =>{
             )
         case "ordered" :
             return(
-                <ol>
+                <ol className='articleOList'>
                     {model.items.map((item,index) => {
                         return <li key={index}>{item}</li>
                     })}

@@ -1,11 +1,6 @@
-import { useState } from 'react'
+import '../Style/App.css'
 
-/*impot the json files to test the raiting component*/
-import article1 from '../Articles/article-1.json'
-import article2 from '../Articles/article-2.json'
-import article3 from '../Articles/article-3.json'
-import article4 from '../Articles/article-4.json'
-import article5 from '../Articles/article-5.json'
+import { useState } from 'react'
 
 const Raiting = ({visitedArticles}) =>{
     const [raiting, setRaiting] = useState([])

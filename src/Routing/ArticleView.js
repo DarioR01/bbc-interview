@@ -93,10 +93,10 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
                 error?
                 <Error type={error.type} description={error.description}/>
                 :
-                <div>
+                <section className="container">
                     <Article model={currentArticle}/>
-                    <button onClick={nextArticle}>Next</button>
-                </div>
+                    <button className="redButton" onClick={nextArticle}>Next</button>
+                </section>
             }
         </div>
     )

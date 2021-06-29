@@ -1,6 +1,8 @@
+import '../Style/App.css'
+
 const Paragraphs = ({model}) =>{
     return(
-        <p>{model.text}</p>
+        <p className='articleParagraph'>{model.text}</p>
     )
 }
 
