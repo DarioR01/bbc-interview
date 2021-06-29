@@ -2,10 +2,10 @@ import '../Style/App.css'
 
 const Error = ({type, description}) =>{
     return(
-        <div>
-            <h1>{type}</h1>
-            <p>{description}</p>
-        </div>
+        <section className='errorContainer'>
+            <h1 className='errorTitle'>{type}</h1>
+            <p className='errorDescription'>{description}</p>
+        </section>
     )
 }
 
