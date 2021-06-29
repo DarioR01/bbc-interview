@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import ArticleView from './Routing/ArticleView'
-import Raiting from './Routing/Raiting'
+import Rating from './Routing/Rating'
 
 function App() {
 
-  /*set goRate to true to visualise Raiting page*/
+  /*set goRate to true to visualise Rating page*/
   const [goRate, setGoRate] = useState(false)
   const [visitedArticle, setVisitedArticle] = useState([])
 
@@ -13,7 +13,7 @@ function App() {
     <div>
       {
         goRate?
-        <Raiting visitedArticles={visitedArticle}/>
+        <Rating visitedArticles={visitedArticle}/>
         :
         <ArticleView setGoRate={setGoRate} setArticleViewed={setVisitedArticle}/>
       }

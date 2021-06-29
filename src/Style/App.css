@@ -113,14 +113,14 @@
 }
 
 
-/*Raiting style*/
+/*Rating style*/
 
-.radioRaiting{
+.radioRating{
     float:right;
     padding: 5%;
 }
 
-.radioRaiting label {
+.radioRating label {
     float: left;
     display: block;
     width: 60px;
