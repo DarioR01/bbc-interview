@@ -16,7 +16,7 @@ import article5 from '../Articles/article-5.json'
     To replicate slow connection increase the internet delay value. The value is in seconds. e.g. try to replace 0 with 2 for a delay of 2 seconds
 */
 const connection = true;
-const internetDelay = 2 /*seconds*/;
+const internetDelay = 0 /*seconds*/;
 
 /*Stub GET request*/ 
 async function serverGetRequestStub (index) {
@@ -75,7 +75,8 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
                     setPreLoad({index: articleIndex+1, article: await serverGetRequestStub(articleIndex+1)})
                     setFetching(false)
                 }catch(err){
-                    console.log(err)
+                    
+
                 }
             }
 
@@ -92,6 +93,7 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
                 catch (err){
                     if(err){
                         setError(err)
+                        setLoading(false)
                     }
                     else{
                         setGoRate(true)
