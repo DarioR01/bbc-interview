@@ -59,6 +59,8 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
     const [articleIndex, setArticleIndex] = useState (1)
 
     const [preLoad, setPreLoad] = useState ({index: 0, article: undefined})
+
+    /*Variable to prevent race condition when preloading*/ 
     const [fetching, setFetching] = useState (false)
 
     let [tmpVisitedArticle, setTmpVisitedArticle] = useState([])
@@ -82,7 +84,9 @@ const ArticleView = ({setGoRate, setArticleViewed}) =>{
                     setCurrentArticle(await serverGetRequestStub(articleIndex))
                     setLoading(false)
                     setFetching(true)
-                    setPreLoad({index: articleIndex+1, article: await serverGetRequestStub(articleIndex+1)})
+                    try{
+                        setPreLoad({index: articleIndex+1, article: await serverGetRequestStub(articleIndex+1)})
+                    }catch(err){/*Avoid to go to Rating if visualizing last page and preloading the goRate response of the server*/}
                     setFetching(false)
                 }
                 catch (err){
