@@ -5,17 +5,17 @@ const List = ({model}) =>{
     switch(model.type){
         case "unordered" :
             return(
-                <ul className='articleUList'>
+                <ul data-testid="unorderedList" className='articleUList'>
                     {model.items.map((item, index) =>{
-                        return <li key={index}>{item}</li>
+                        return <li data-testid="unorderedListItem" key={index}>{item}</li>
                     })}
                 </ul>
             )
         case "ordered" :
             return(
-                <ol className='articleOList'>
+                <ol data-testid="orderedList" className='articleOList'>
                     {model.items.map((item,index) => {
-                        return <li key={index}>{item}</li>
+                        return <li data-testid="orderedListItem" key={index}>{item}</li>
                     })}
                 </ol>
             )
