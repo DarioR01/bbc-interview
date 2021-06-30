@@ -13,10 +13,10 @@ import article5 from '../Articles/article-5.json'
 
 /* 
     For connection error set the variable connection to false
-    To replicate slow connection increase the internet delay value (for each 1000 1 second delay) e.g. try to replace 0 with 2000 for a delay of 2 seconds
+    To replicate slow connection increase the internet delay value. The value is in seconds. e.g. try to replace 0 with 2 for a delay of 2 seconds
 */
 const connection = true;
-const internetDelay = 2000;
+const internetDelay = 2 /*seconds*/;
 
 /*Stub GET request*/ 
 async function serverGetRequestStub (index) {
@@ -46,7 +46,7 @@ async function serverGetRequestStub (index) {
                             reject(undefined)
                     }
                 }
-            , internetDelay)
+            , (internetDelay*1000))
     })
 }
 
